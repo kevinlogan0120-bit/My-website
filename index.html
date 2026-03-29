@@ -1,225 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>SET 2K26</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My QR Website</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+            padding-top: 100px;
+        }
 
-  <!-- ===== CSS ===== -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+        h1 {
+            font-size: 40px;
+        }
 
-    body {
-      background: #0f172a;
-      color: #f8fafc;
-      line-height: 1.6;
-    }
+        p {
+            font-size: 20px;
+        }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      background: #020617;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+        button {
+            padding: 15px 25px;
+            font-size: 18px;
+            background-color: white;
+            color: #333;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
 
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #38bdf8;
-    }
-
-    nav a {
-      color: #f8fafc;
-      margin-left: 20px;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    .hero {
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-    }
-
-    .hero p {
-      margin: 15px 0;
-      font-size: 1.2rem;
-    }
-
-    .hero button {
-      padding: 12px 30px;
-      border: none;
-      background: #38bdf8;
-      color: #020617;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .hero button:hover {
-      background: #0ea5e9;
-    }
-
-    section {
-      padding: 80px 40px;
-      text-align: center;
-    }
-
-    .dark {
-      background: #000000;
-    }
-
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: #0f172a;
-      padding: 30px;
-      width: 220px;
-      border-radius: 10px;
-      border: 1px solid #38bdf8;
-    }
-
-    #timer {
-      font-size: 2rem;
-      margin-top: 20px;
-      color: #38bdf8;
-    }
-
-    footer {
-      background: #020617;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      nav a {
-        margin-left: 10px;
-      }
-    }
-  </style>
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
 </head>
 
 <body>
-  <marquee>Designed by: Maozi(09154953459) & Tobenna(09041707251)</marquee>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="logo">SET <span>2K26</span></div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#events">Events</a>
-      <a href="#countdown">Countdown</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
 
-  <!-- ===== HERO ===== -->
-  <div class="hero">
-    <h1>Welcome to SET 2K26</h1>
-    <p>The future starts now.</p>
-    <button onclick="goToAbout()">Explore</button>
-  </div>
+    <h1>Welcome 🎉</h1>
+    <p>You opened this website using a QR Code!</p>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <h2>About SET 2K26</h2>
-    <p>
-      SET 2K26 is a forward-looking event designed to inspire innovation,
-      leadership, creativity, and excellence among students and young minds.
-    </p>
-  </section>
+    <button onclick="showMessage()">Click Me</button>
 
-  <!-- ===== EVENTS ===== -->
-  <section id="events" class="dark">
-    <h2>Our Events</h2>
-    <div class="cards">
-      <a href="" class="dark"><div class="card">Reedemer's Day</div></a>
-      <a href=""><div class="card">Random</div></a>
-      <div class="card">Competitions</div>
-      <div class="card">Networking</div>
-    </div>
-  </section>
-
-  <!-- ===== COUNTDOWN ===== -->
-  <section id="countdown">
-    <h2>Countdown to SET 2K26</h2>
-    <div id="timer">Loading...</div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="dark">
-    <h2>Contact Us</h2>
-    <p>Email: info@set2k26.com</p>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    © 2026 SET 2K26. All rights reserved.
-  </footer>
-
-  <!-- ===== JAVASCRIPT ===== -->
-  <script>
-    function goToAbout() {
-      document.getElementById("about")
-        .scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Countdown Timer
-    const eventDate = new Date("January 1, 2026 00:00:00").getTime();
-
-    const countdown = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        clearInterval(countdown);
-        document.getElementById("timer").innerHTML =
-          "SET 2K26 IS LIVE!";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      document.getElementById("timer").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }, 1000);
-  </script>
+    <script>
+        function showMessage() {
+            alert("Website is working perfectly ✅");
+        }
+    </script>
 
 </body>
 </html>
